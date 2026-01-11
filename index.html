@@ -3,61 +3,87 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Mesas de la Boda</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Asignación de mesas</title>
 
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <main class="app">
+        <div class="header">
+            <div class="title">
+                <h1>Asignación de mesas</h1>
+                <p>Búsqueda rápida por código o nombre</p>
+            </div>
+            <div class="pill" id="modePill">
+                Modo: <span id="modeText">Código</span>
+            </div>
+        </div>
 
-        <header class="header fade-in">
-            <h1>Asignación de mesas</h1>
-            <p>Busca tu mesa de forma rápida</p>
-        </header>
-
-        <section class="card slide-up">
-
-            <div class="tabs">
-                <button id="tabCode" class="tab active">🔑 Código</button>
-                <button id="tabName" class="tab">🔍 Nombre</button>
+        <section class="card" aria-label="Búsqueda de mesas">
+            <div class="tabs" role="tablist" aria-label="Modo de búsqueda">
+                <button class="tab" role="tab" id="tabCode" aria-selected="true">
+                    🔑 Código
+                </button>
+                <button class="tab" role="tab" id="tabName" aria-selected="false">
+                    🔍 Nombre
+                </button>
             </div>
 
-            <!-- Código -->
-            <div id="panelCode" class="panel fade-in">
-                <label>Código de invitación</label>
-                <input id="codeInput" placeholder="UX3LIS" maxlength="6" />
-                <small>6 caracteres (letras y números)</small>
-                <button id="codeBtn" class="primary">Buscar</button>
-            </div>
+            <div class="content">
+                <!-- Panel: Código -->
+                <div id="panelCode">
+                    <div class="row">
+                        <div class="field">
+                            <label for="codeInput">Código de invitación</label>
+                            <input id="codeInput" autocomplete="off" spellcheck="false" maxlength="6"
+                                placeholder="Ej. UX3LIS" />
+                            <div class="hint">
+                                6 caracteres (A–Z / 0–9). Se muestra en mayúsculas.
+                            </div>
+                        </div>
+                        <button class="btn" id="codeBtn">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
 
-            <!-- Nombre -->
-            <div id="panelName" class="panel hidden fade-in">
-                <label>Nombre del invitado</label>
-                <input id="nameInput" placeholder="García" />
-                <small>Apellido o nombre parcial</small>
-                <button id="nameBtn" class="primary">Buscar</button>
-            </div>
+                <!-- Panel: Nombre -->
+                <div id="panelName" hidden>
+                    <div class="row">
+                        <div class="field">
+                            <label for="nameInput">Nombre del invitado</label>
+                            <input id="nameInput" autocomplete="off" placeholder="Ej. García" />
+                            <div class="hint">
+                                Puedes buscar por apellido o nombre parcial.
+                            </div>
+                        </div>
+                        <button class="btn" id="nameBtn">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
 
-            <!-- Estado -->
-            <div id="status" class="status">
-                <span class="spinner"></span>
-                <div>
-                    <strong id="statusTitle">Listo</strong>
-                    <p id="statusText">Selecciona una opción</p>
+                <!-- Estado -->
+                <div class="status" id="status">
+                    <div class="spinner" aria-hidden="true"></div>
+                    <div>
+                        <strong id="statusTitle">Listo</strong>
+                        <div id="statusText">
+                            Selecciona un modo y realiza la búsqueda.
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Resultados -->
-            <div id="result" class="result hidden"></div>
-
+            <div class="result" id="result" hidden></div>
         </section>
 
-        <footer class="footer fade-in">
-            Uso exclusivo del personal del evento
-        </footer>
-
+        <div class="footer">
+            Uso exclusivo del personal del evento • Datos desde Google Sheets
+        </div>
     </main>
 
     <script src="app.js"></script>
