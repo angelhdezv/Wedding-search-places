@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Mesas de la Boda</title>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <main class="app">
+
+        <header class="header fade-in">
+            <h1>Asignación de mesas</h1>
+            <p>Busca tu mesa de forma rápida</p>
+        </header>
+
+        <section class="card slide-up">
+
+            <div class="tabs">
+                <button id="tabCode" class="tab active">🔑 Código</button>
+                <button id="tabName" class="tab">🔍 Nombre</button>
+            </div>
+
+            <!-- Código -->
+            <div id="panelCode" class="panel fade-in">
+                <label>Código de invitación</label>
+                <input id="codeInput" placeholder="UX3LIS" maxlength="6" />
+                <small>6 caracteres (letras y números)</small>
+                <button id="codeBtn" class="primary">Buscar</button>
+            </div>
+
+            <!-- Nombre -->
+            <div id="panelName" class="panel hidden fade-in">
+                <label>Nombre del invitado</label>
+                <input id="nameInput" placeholder="García" />
+                <small>Apellido o nombre parcial</small>
+                <button id="nameBtn" class="primary">Buscar</button>
+            </div>
+
+            <!-- Estado -->
+            <div id="status" class="status">
+                <span class="spinner"></span>
+                <div>
+                    <strong id="statusTitle">Listo</strong>
+                    <p id="statusText">Selecciona una opción</p>
+                </div>
+            </div>
+
+            <!-- Resultados -->
+            <div id="result" class="result hidden"></div>
+
+        </section>
+
+        <footer class="footer fade-in">
+            Uso exclusivo del personal del evento
+        </footer>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
