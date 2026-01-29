@@ -239,5 +239,9 @@ codeInput.addEventListener("input", () => {
     if (codeInput.value !== next) codeInput.value = next;
 });
 
+document.getElementById("mapBtn").addEventListener("click", () => {
+    window.open("assets/map.png", "_blank", "noopener");
+});
+
 // Init
 setMode("byCode");
