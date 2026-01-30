@@ -240,7 +240,7 @@ codeInput.addEventListener("input", () => {
 });
 
 document.getElementById("mapBtn").addEventListener("click", () => {
-    window.open("assets/map.png", "_blank", "noopener");
+    window.open("assets/mapa.png", "_blank", "noopener");
 });
 
 // Init
